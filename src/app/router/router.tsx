@@ -1,19 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { StartingPage, NotFoundPage } from '@pages'
+import { TodoPage, NotFoundPage } from '@pages'
+import { Layout } from '../layout'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    Component() {
-      return <StartingPage />
-    }
-  },
-  {
-    path: '*',
-    Component() {
-      return <NotFoundPage />
-    }
+    element: <Layout />,
+    children: [
+      {
+        path: '/',
+        element: <TodoPage />
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />
+      }
+    ]
   }
 ])
-
-

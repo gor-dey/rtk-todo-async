@@ -8,12 +8,11 @@
 
     /* Paths */
     "paths": {
-      "@/*": ["./src"],
-      "@app": ["./src/app"],
-      "@pages": ["./src/pages"],
-      "@widgets": ["./src/widgets"],
-      "@entities": ["./src/entities"],
-      "@shared": ["./src/shared"]
+      "@app": ["./src/app/index.ts"],
+      "@pages": ["./src/pages/index.ts"],
+      "@widgets": ["./src/widgets/index.ts"],
+      "@entities": ["./src/entities/index.ts"],
+      "@shared/*": ["./src/shared/*"]
     },
 
     /* Bundler mode */
@@ -33,5 +32,3 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-
-

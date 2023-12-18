@@ -1,14 +1,13 @@
 import { RouterProvider } from 'react-router'
-import { RootStoreProvider } from '@shared'
-import { rootStore } from '@shared'
+
 import { router } from './router'
+import { Provider } from 'react-redux'
+import { store } from '@shared/store'
 
 export const App = () => {
   return (
-    <RootStoreProvider rootStore={rootStore}>
+    <Provider store={store}>
       <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
-    </RootStoreProvider>
+    </Provider>
   )
 }
-
-         

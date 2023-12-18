@@ -1,4 +1,4 @@
-import { Button } from  '@shared'
+import { Button } from '@shared/components'
 import { Link } from 'react-router-dom'
 
 export const NotFound = () => {
@@ -6,11 +6,9 @@ export const NotFound = () => {
     <>
       <h1>Страница не найдена!</h1>
       <br />
-      <Link to='/'>
-        <Button text='На главную' />
+      <Link to="/">
+        <Button text="На главную" />
       </Link>
     </>
   )
 }
-
-

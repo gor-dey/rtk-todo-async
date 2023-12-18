@@ -1,4 +1,2 @@
-export * from './StartingPage'
+export * from './TodoPage'
 export * from './NotFoundPage'
-
-
