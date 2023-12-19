@@ -1,9 +1,16 @@
 import { Button } from '@shared/components'
 import { useAppDispatch } from '@shared/hooks'
 import { removePost } from '@shared/store'
-import { Post } from '@shared/types'
+import { Id, Post } from '@shared/types'
+import { useLocation } from 'react-router-dom'
 
-export const PostItem = (post: Post) => {
+interface PostItemProps extends Omit<Post, 'handleRemovePost'> {
+  handleRemovePost?: (id: Id) => void
+}
+
+export const PostItem = (post: PostItemProps) => {
+  const pathname = useLocation().pathname
+
   const dispatch = useAppDispatch()
 
   return (
@@ -11,7 +18,15 @@ export const PostItem = (post: Post) => {
       <h3>{post.title}</h3>
       <p>{post.body}</p>
 
-      <Button onClick={() => dispatch(removePost(post.id))} text="удалить" />
+      {pathname === '/async' && (
+        <Button onClick={() => dispatch(removePost(post.id))} text="удалить" />
+      )}
+      {pathname === '/rtkquery' && (
+        <Button
+          onClick={() => post.handleRemovePost?.(post.id)}
+          text="удалить"
+        />
+      )}
     </div>
   )
 }

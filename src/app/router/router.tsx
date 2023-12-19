@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { TodoPage, NotFoundPage, PostsPage } from '@pages'
+import { TodoPage, NotFoundPage, PostsPage, RTKQueryPage } from '@pages'
 import { Layout } from '../layout'
 
 export const router = createBrowserRouter([
@@ -13,6 +13,10 @@ export const router = createBrowserRouter([
       {
         path: '/async',
         element: <PostsPage />
+      },
+      {
+        path: '/rtkquery',
+        element: <RTKQueryPage />
       },
       {
         path: '*',

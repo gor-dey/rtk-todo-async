@@ -1,3 +1,4 @@
+import { Loader } from '@shared/components'
 import { useAppDispatch, useAppSelector } from '@shared/hooks'
 import { getPosts } from '@shared/store'
 import { Post } from '@shared/types'
@@ -11,7 +12,10 @@ export const GetAsyncPosts = () => {
     dispatch(getPosts())
   }, [dispatch])
 
-  const posts = useAppSelector(state => state.post.posts)
+  // const posts = useAppSelector(state => state.post.posts)
+  const { posts, loading } = useAppSelector(state => state.post)
+
+  if (loading) return <Loader />
 
   return (
     <ul>
