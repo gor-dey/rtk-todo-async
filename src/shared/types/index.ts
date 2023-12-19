@@ -4,7 +4,7 @@ export type ButtonProps = {
   link?: string
 }
 
-type Id = string
+export type Id = string | number
 
 export type Todo = {
   id: Id
@@ -17,4 +17,16 @@ export type FiltersType = 'all' | 'inProgress' | 'completed'
 export type TodoState = {
   list: Todo[]
   filter: FiltersType
+}
+
+export type Post = {
+  id: Id
+  title: string
+  body: string
+}
+
+export type PostState = {
+  posts: Post[]
+  loading: boolean
+  error: null | string | undefined
 }

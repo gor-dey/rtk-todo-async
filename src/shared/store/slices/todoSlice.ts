@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { FiltersType, TodoState } from '@shared/types'
+import { FiltersType, Id, TodoState } from '@shared/types'
 import { all } from '@shared/utils'
 
 const initialState: TodoState = {
@@ -18,11 +18,11 @@ const todoSlice = createSlice({
         completed: false
       })
     },
-    toggleComplete(state, action: PayloadAction<string>) {
+    toggleComplete(state, action: PayloadAction<Id>) {
       const toggledTodo = state.list.find(todo => todo.id === action.payload)
       toggledTodo && (toggledTodo.completed = !toggledTodo.completed)
     },
-    removeTodo(state, action: PayloadAction<string>) {
+    removeTodo(state, action: PayloadAction<Id>) {
       state.list = state.list.filter(todo => todo.id !== action.payload)
     },
     setFilter(state, action: PayloadAction<FiltersType>) {

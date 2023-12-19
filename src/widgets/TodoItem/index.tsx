@@ -15,7 +15,6 @@ export const TodoItem = ({ id, title, completed }: Readonly<Todo>) => {
       />
       <span>{title}</span>
       <Button onClick={() => dispatch(removeTodo(id))} text="&times;" />
-      {/* <button onClick={() => dispatch(removeTodo(id))}>&times;</button> */}
     </li>
   )
 }
