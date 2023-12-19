@@ -12,7 +12,6 @@ export const GetAsyncPosts = () => {
     dispatch(getPosts())
   }, [dispatch])
 
-  // const posts = useAppSelector(state => state.post.posts)
   const { posts, loading } = useAppSelector(state => state.post)
 
   if (loading) return <Loader />

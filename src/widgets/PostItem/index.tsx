@@ -1,12 +1,21 @@
 import { Button } from '@shared/components'
+import { border } from '@shared/cssConstants'
 import { useAppDispatch } from '@shared/hooks'
 import { removePost } from '@shared/store'
 import { Id, Post } from '@shared/types'
 import { useLocation } from 'react-router-dom'
+import styled from 'styled-components'
 
 interface PostItemProps extends Omit<Post, 'handleRemovePost'> {
   handleRemovePost?: (id: Id) => void
 }
+
+const Li = styled.li`
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  border-bottom: ${border};
+`
 
 export const PostItem = (post: PostItemProps) => {
   const pathname = useLocation().pathname
@@ -14,7 +23,7 @@ export const PostItem = (post: PostItemProps) => {
   const dispatch = useAppDispatch()
 
   return (
-    <div>
+    <Li>
       <h3>{post.title}</h3>
       <p>{post.body}</p>
 
@@ -27,6 +36,6 @@ export const PostItem = (post: PostItemProps) => {
           text="удалить"
         />
       )}
-    </div>
+    </Li>
   )
 }

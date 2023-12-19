@@ -17,6 +17,7 @@ export type FiltersType = 'all' | 'inProgress' | 'completed'
 export type TodoState = {
   list: Todo[]
   filter: FiltersType
+  completedCount: number
 }
 
 export type Post = {
