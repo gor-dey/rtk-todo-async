@@ -1,30 +1,42 @@
-# todo компонент
+#  Todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задние:
 
-Currently, two official plugins are available:
+Создать todo компонент, основные технологии react, ts, redux, scss или любой другой препроцессор.
+Остальные технологии и дизайн на ваше усмотрение.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Задача: Весь нижеперечисленный функционал должен работать с redux хранилищем. Счетчик, статус задач и т.д.
+Функционал должен включать в себя
+1. Добавление новой задачи
+2. Добавление описания для каждой задачи
+3. Новая задача добавляется с условием что ее длинна меньше или равна 30
+4. Отображение списка добавленных записей
+5. Переключение статуса записи любым способом, Выполнено/В работе/Ожидание
+6. Фильтрация по статусу на toggle кнопку
+7. Отображение счетчика выполненных задач.
+Главное условие, для выполненных задач нужно написать шаблон RTK query запроса который отправляет json со списком названий всех выполненных задач,
+моковые серверы использовать не нужно, только шаблон запроса, желательно добавить createAsyncThunk.
 
-## Expanding the ESLint configuration
+# Мой комментарий
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Я сначала неправильно понял задание, поэтому сделал две лишних страницы с чисто createReactThunk и RTK Query. После решил не удалять, а оставить. 
 
-- Configure the top-level `parserOptions` property like this:
+Непосредственно по заданию только роут '/'. Все компоненты и сторы помечены 'todo'.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Специально оставил console.log('completedTodosJson', completedTodosJson), чтобы было видно, какой именно файл "отправляется" по кнопке "Отправить" json с выполенными задачами
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Стек
+
+* React,
+* Typescript,
+* RTK,
+* reselect (для предотвращения лишних ререндеров в Редаксе)
+* Styled-Components (в задании сказано любой CSS препроцессор. Это не совсем препроцессор, но принцип написания стилей точно такой же)
+* React-hook-form
+* React-router-dom
+
+# Установка и запуск
+
+    yarn
+    
+    yarn dev
