@@ -9,6 +9,7 @@ const ButtonStyle = styled.button`
   background-color: ${background};
   border: none;
   cursor: pointer;
+  text-decoration: underline;
 
   &:hover {
     background-color: #e0e0e0;

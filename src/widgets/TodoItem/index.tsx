@@ -5,7 +5,7 @@ import { removeTodo, toggleComplete } from '@shared/store'
 import { Todo } from '@shared/types'
 import styled from 'styled-components'
 
-const Li = styled.li<{ completed?: boolean }>`
+const Li = styled.li`
   list-style: none;
   padding: ${gap};
   display: flex;
@@ -14,9 +14,9 @@ const Li = styled.li<{ completed?: boolean }>`
   width: 600px;
   border-bottom: ${border};
 
-  & > span {
+  & > label {
     flex: 1;
-    text-decoration: ${props => (props.completed ? 'line-through' : 'none')};
+    cursor: pointer;
   }
 
   & > input {
@@ -25,8 +25,12 @@ const Li = styled.li<{ completed?: boolean }>`
     width: ${gap};
     height: ${gap};
     accent-color: ${background};
-  }
 
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.2s;
+    }
+  }
   @media (max-width: 600px) {
     width: 100vw;
   }
@@ -36,14 +40,19 @@ export const TodoItem = ({ id, title, completed }: Readonly<Todo>) => {
   const dispatch = useAppDispatch()
 
   return (
-    <Li completed={completed}>
+    <Li>
       <input
+        id={id.toString()}
         type="checkbox"
         checked={completed}
         onChange={() => dispatch(toggleComplete(id))}
       />
-      <span>{title}</span>
-      <Button onClick={() => dispatch(removeTodo(id))} text="удалить" />
+      <label htmlFor={id.toString()}>
+        <span style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+          {title}
+        </span>
+      </label>
+      <Button onClick={() => dispatch(removeTodo(id))} text="Удалить" />
     </Li>
   )
 }

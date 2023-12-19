@@ -1,6 +1,6 @@
-import { CompletedCount, Filters, TodoForm } from '@entities'
+import { Filters, TodoForm } from '@entities'
 import { gap } from '@shared/cssConstants'
-import { TodoList } from '@widgets'
+import { Completed, TodoList } from '@widgets'
 import styled from 'styled-components'
 
 const Div = styled.div`
@@ -19,7 +19,7 @@ export const TodoPage = () => {
   return (
     <Div>
       <h1>Todo-лист на RTK</h1>
-      <CompletedCount />
+      <Completed />
       <TodoForm />
       <Filters />
       <TodoList />

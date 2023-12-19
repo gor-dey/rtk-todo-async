@@ -41,7 +41,7 @@ export const TodoForm = () => {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Input
         autoFocus
-        placeholder="новая туду"
+        placeholder="Новая туду"
         {...register('text', { required: true, maxLength: 30 })}
       />
       <Button

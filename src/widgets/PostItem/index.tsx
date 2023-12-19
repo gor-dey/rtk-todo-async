@@ -28,12 +28,12 @@ export const PostItem = (post: PostItemProps) => {
       <p>{post.body}</p>
 
       {pathname === '/async' && (
-        <Button onClick={() => dispatch(removePost(post.id))} text="удалить" />
+        <Button onClick={() => dispatch(removePost(post.id))} text="Удалить" />
       )}
       {pathname === '/rtkquery' && (
         <Button
           onClick={() => post.handleRemovePost?.(post.id)}
-          text="удалить"
+          text="Удалить"
         />
       )}
     </Li>
